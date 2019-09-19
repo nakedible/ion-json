@@ -44,3 +44,44 @@ A simplified mapping of Ion types to JSON representations:
 - `sexp` => `{"__ion": "sexp", "value": ["a", "b"]}`
 - `annotation` => `{"__ion": "annotation", "annotations": ["int32"], "value": 123}`
 
+## Usage
+
+Parse Ion and convert to Ion JSON:
+
+```
+> ionJson.ionToJson("{__ion: 'foo'}")
+{ '__ion:__ion': [ { __ion: 'symbol', value: 'foo' } ] }
+```
+
+Serialize Ion JSON to Ion binary:
+
+```
+> ionJson.jsonToIonBinary({__ion: "int", value: "2147483646"})
+<Buffer e0 01 00 ea 24 7f ff ff fe>
+```
+
+Serialize Ion JSON to Ion text:
+
+```
+> ionJson.jsonToIonText({__ion: "int", value: "2147483646"})
+'2147483646'
+```
+
+Serialize Ion JSON to Ion pretty printed text:
+
+```
+> ionJson.jsonToIonPretty([3])
+'[\n  3e0\n]'
+```
+
+Escape am arbitrary JSON object for safe serialization using Ion JSON:
+
+```
+> ionJson.escapeJson({__ion: "int", value: "2147483646"})
+{ '__ion:__ion': 'int', value: '2147483646' }
+```
+
+## Known limitations
+
+- Integers larger than 32 bits do not currently work due to limitations in `ion-js`.
+- Largely untested, just proof of concept
