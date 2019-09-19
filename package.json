@@ -1,0 +1,14 @@
+{
+  "name": "ion-json",
+  "version": "0.0.0",
+  "description": "Amazon Ion lossless JSON mapping",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ion-js": "^3.0.0"
+  }
+}
