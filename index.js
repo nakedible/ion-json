@@ -70,7 +70,11 @@ function readValueRaw(reader) {
         const esc = `__ion:${field}`;
         if (struct.hasOwnProperty(esc)) {
           struct[esc].push(readValue(reader));
-        } else if (field === "__ion" || field.startsWith('ion:') || struct.hasOwnProperty(field)) {
+        } else if (
+          field === "__ion" ||
+          field.startsWith("ion:") ||
+          struct.hasOwnProperty(field)
+        ) {
           struct[esc] = [readValue(reader)];
         } else {
           struct[field] = readValue(reader);
@@ -202,7 +206,15 @@ function jsonToIonBinary(value) {
 }
 
 function escapeJson(value) {
-  return cloneDeepWith(value, (val, key, parent) => {});
+  if (typeof value !== "object") return value;
+  if (Array.isArray(value)) return value.map(escapeJson);
+  const ret = {};
+  for (const k in value) {
+    ret[
+      k === "__ion" || k.startsWith("__ion:") ? `__ion:${k}` : k
+    ] = escapeJson(value[k]);
+  }
+  return ret;
 }
 
 exports.ionToJson = ionToJson;
