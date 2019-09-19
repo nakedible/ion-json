@@ -1,5 +1,7 @@
 # Ion JSON Mapping
 
+***NOTE: very preliminary, do not use yet***
+
 This is the specification of a bidirectional lossless mapping of Ion
 documents to JSON documents.
 

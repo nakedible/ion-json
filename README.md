@@ -1,5 +1,7 @@
 # Ion JSON mapping
 
+***NOTE: very preliminary, do not use yet***
+
 Amazon Ion is a data format that is a superset of JSON. It supports a
 richer set of types than JSON and has both efficient binary and
 readable text encodings. However, sometimes Ion data needs to be
