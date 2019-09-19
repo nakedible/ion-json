@@ -5,3 +5,4 @@ console.log(ionJson.ionToJson("{__ion: 'foo', a: 3e0, b: 3e0, a: 4e0, a: 5e0, a:
 console.log(ionJson.ionToJson("{__ion: 'foo'}"));
 console.log(ionJson.jsonToIonPretty(ionJson.ionToJson("{__ion: 'foo'}")));
 console.log(ionJson.ionToJson(ionJson.jsonToIonBinary(ionJson.ionToJson("foo::bar::2147483647"))));
+console.log(ionJson.escapeJson({'__ion': 'foo', '__ion:bar': 'bar', a: [{'__ion': 'baz'}]}));
