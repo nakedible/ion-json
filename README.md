@@ -44,6 +44,8 @@ A simplified mapping of Ion types to JSON representations:
 - `sexp` => `{"__ion": "sexp", "value": ["a", "b"]}`
 - `annotation` => `{"__ion": "annotation", "annotations": ["int32"], "value": 123}`
 
+Please read the [SPECIFICATION](./SPECIFICATION.md) for details.
+
 ## Usage
 
 Parse Ion and convert to Ion JSON:
