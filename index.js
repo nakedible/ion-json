@@ -131,7 +131,7 @@ function writeValue(writer, value) {
     writer.writeNull(IonTypes.NULL);
   } else if (Array.isArray(value)) {
     writer.stepIn(IonTypes.LIST);
-    for (const item of value.value) {
+    for (const item of value) {
       writeValue(writer, item);
     }
     writer.stepOut();
